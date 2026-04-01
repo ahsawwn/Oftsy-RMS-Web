@@ -1,26 +1,100 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
+@theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-brand-primary: var(--brand-primary);
+  --color-brand-secondary: var(--brand-secondary);
+  --color-brand-accent: var(--brand-accent);
+  --color-border: var(--border);
+  
+  /* Modern Shadow System */
+  --shadow-premium: 0 20px 40px -12px rgba(0, 0, 0, 0.1);
+  --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.08);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  /* High-End Light Theme (Oftsy Platinum) */
+  --background: #fdfdfe;
+  --foreground: #020617;
+  --brand-primary: #0f172a; 
+  --brand-secondary: #f1f5f9;
+  --brand-accent: #334155;
+  --border: #e2e8f0;
+  
+  /* Utility Accents */
+  --accent-blue: #3b82f6;
+  --accent-gold: #eab308;
+  --accent-green: #10b981;
+}
+
+/* Base Dark Theme (Glassmorphism & Depth) */
+.dark {
+  --background: #020617;
+  --foreground: #f8fafc;
+  --brand-primary: #38bdf8;
+  --brand-secondary: #0f172a / 0.5;
+  --brand-accent: #94a3b8;
+  --border: #1e293b;
+}
+
+/* Ocean Theme (Deep Navy & Cyan) */
+.theme-ocean {
+  --background: #080c14; 
+  --foreground: #f0f9ff;
+  --brand-primary: #0ea5e9; 
+  --brand-secondary: #0c1e34;
+  --brand-accent: #38bdf8;
+  --border: #1e3a5f;
+}
+
+/* Forest Theme (Emerald & Jade) */
+.theme-forest {
+  --background: #051b14;
+  --foreground: #ecfdf5;
+  --brand-primary: #10b981;
+  --brand-secondary: #064e3b;
+  --brand-accent: #34d399;
+  --border: #065f46;
+}
+
+/* Rose Theme (Executive Crimson) */
+.theme-rose {
+  --background: #1c050a;
+  --foreground: #fff1f2;
+  --brand-primary: #e11d48;
+  --brand-secondary: #4c0519;
+  --brand-accent: #fb7185;
+  --border: #881337;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground transition-all duration-500 antialiased selection:bg-brand-primary selection:text-background;
+    background-image: radial-gradient(at 0% 0%, var(--brand-secondary) 0%, transparent 40%),
+                      radial-gradient(at 100% 100%, var(--brand-secondary) 0%, transparent 40%);
+    background-attachment: fixed;
   }
-}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  /* Premium Card Foundations */
+  .premium-card {
+    @apply bg-white/80 dark:bg-zinc-900/50 backdrop-blur-xl border border-white/20 dark:border-zinc-800/50 shadow-premium rounded-[2rem] transition-all duration-300;
+  }
+
+  .premium-card:hover {
+    @apply border-brand-primary/20 shadow-2xl scale-[1.005];
+  }
+
+  /* Executive Typography */
+  h1, h2, h3 {
+    @apply tracking-tighter uppercase font-black;
+    background: linear-gradient(to bottom right, var(--foreground), var(--brand-accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Glass Inputs */
+  input, select, textarea {
+    @apply bg-brand-secondary/30 backdrop-blur-md border border-border/10 rounded-2xl transition-all duration-300 focus:ring-4 focus:ring-brand-primary/10 focus:border-brand-primary/40;
+  }
 }
