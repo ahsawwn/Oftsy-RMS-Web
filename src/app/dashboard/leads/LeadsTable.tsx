@@ -193,7 +193,6 @@ export function LeadsTable({ data }: { data: LeadData[] }) {
                     </div>
                     <Button 
                         variant="outline" 
-                        size="sm"
                         onClick={() => table.previousPage()}
                         disabled={!table.getCanPreviousPage()}
                         className="h-9 w-9 p-0 rounded-lg border-border/10 hover:bg-brand-secondary disabled:opacity-20 transition-all font-black text-xs"
@@ -202,13 +201,13 @@ export function LeadsTable({ data }: { data: LeadData[] }) {
                     </Button>
                     <Button 
                         variant="outline"
-                        size="sm" 
                         onClick={() => table.nextPage()}
                         disabled={!table.getCanNextPage()}
                         className="h-9 w-9 p-0 rounded-lg border-border/10 hover:bg-brand-secondary disabled:opacity-20 transition-all font-black text-xs"
                     >
                         <ChevronRight size={16} />
                     </Button>
+
                  </div>
             </div>
         </div>

@@ -218,7 +218,6 @@ export function PropertiesTable({ data }: { data: PropertyData[] }) {
                     </div>
                     <Button 
                         variant="outline" 
-                        size="sm"
                         onClick={() => table.previousPage()}
                         disabled={!table.getCanPreviousPage()}
                         className="h-10 w-10 p-0 rounded-xl border-border/20 hover:bg-brand-secondary disabled:opacity-30"
@@ -227,13 +226,13 @@ export function PropertiesTable({ data }: { data: PropertyData[] }) {
                     </Button>
                     <Button 
                         variant="outline"
-                        size="sm" 
                         onClick={() => table.nextPage()}
                         disabled={!table.getCanNextPage()}
                         className="h-10 w-10 p-0 rounded-xl border-border/20 hover:bg-brand-secondary disabled:opacity-30"
                     >
                         <ChevronRight size={16} />
                     </Button>
+
                  </div>
             </div>
         </div>
