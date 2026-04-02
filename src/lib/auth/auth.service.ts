@@ -17,7 +17,7 @@ export const AuthService = {
 
     async createSession(userId: string, ip: string, ua: string) {
         const sessionId = encodeBase32LowerCaseNoPadding(crypto.getRandomValues(new Uint8Array(20)));
-        const expiresAt = new Date(Date.now() + 1000 * 60 * 60 * 24 * 30); // 30 days
+        const expiresAt = new Date(Date.now() + 1000 * 60 * 60); // 1 hour
 
         return await db.transaction(async (tx) => {
             await tx.insert(sessions).values({ id: sessionId, userId, expiresAt, ipAddress: ip, userAgent: ua });

@@ -5,7 +5,7 @@ import { DBProxy } from "@/lib/db/proxy";
 const AUTH_PAGES = ["/login", "/register"];
 const PUBLIC_API_ROUTES = ["/api/mobile/auth/login", "/api/mobile/inventory", "/api/mobile/leads", "/api/mobile/dashboard", "/api/mobile/expenses"];
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
     const { pathname } = request.nextUrl;
     const sessionToken = request.cookies.get("auth_session")?.value;
 
