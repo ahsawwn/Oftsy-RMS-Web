@@ -1,4 +1,6 @@
 import React from "react";
+import Link from "next/link";
+
 import { getPropertyDetails } from "../actions";
 import { getAllLeads } from "@/app/dashboard/leads/actions";
 import { notFound } from "next/navigation";
